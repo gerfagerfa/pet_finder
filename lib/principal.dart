@@ -17,6 +17,7 @@ class _PrincipalState extends State<Principal> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        brightness: Brightness.light,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Icon(

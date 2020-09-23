@@ -14,6 +14,7 @@ class PetDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        brightness: Brightness.light,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: GestureDetector(
