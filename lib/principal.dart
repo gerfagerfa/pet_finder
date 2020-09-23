@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_finder/data.dart';
 import 'package:pet_finder/pet_widget.dart';
 import 'package:pet_finder/category_list.dart';
+import 'package:pet_finder/user_avatar.dart';
 
 class Principal extends StatefulWidget {
   @override
@@ -170,7 +171,7 @@ class _PrincipalState extends State<Principal> {
             ),
 
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.only(right: 16, left: 16, bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -198,8 +199,8 @@ class _PrincipalState extends State<Principal> {
               child: PageView(
                 physics: BouncingScrollPhysics(),
                 children: [
-                  buildVet("assets/images/vets/vet_0.png", "Animal Emergency", "(369) 133-8956"),
-                  buildVet("assets/images/vets/vet_1.png", "Artemis Veterinary", "(706) 722-9159"),
+                  buildVet("assets/images/vets/vet_0.png", "Animal Emergency Hospital", "(369) 133-8956"),
+                  buildVet("assets/images/vets/vet_1.png", "Artemis Veterinary Center", "(706) 722-9159"),
                   buildVet("assets/images/vets/vet_2.png", "Big Lake Vet Hospital", "(598) 4986-9532"),
                   buildVet("assets/images/vets/vet_3.png", "Veterinary Medical Center", "(33) 8974-559-555"),
                 ],
@@ -222,7 +223,7 @@ class _PrincipalState extends State<Principal> {
           );
         },
         child: Container(
-          height: 70,
+          height: 80,
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -238,11 +239,21 @@ class _PrincipalState extends State<Principal> {
             children: [
 
               Container(
-                height: 46,
-                width: 46,
+                height: 56,
+                width: 56,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: color.withOpacity(0.5),
+                ),
+                child: Center(
+                  child: SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: Image.asset(
+                      "assets/images/" + (category == Category.HAMSTER ? "hamster" : category == Category.CAT ? "cat" : category == Category.BUNNY ? "bunny" : "dog") + ".png",
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
                 ),
               ),
 
@@ -252,6 +263,7 @@ class _PrincipalState extends State<Principal> {
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
 
                   Text(
@@ -285,14 +297,9 @@ class _PrincipalState extends State<Principal> {
     List<Widget> list = [];
     for (var i = 0; i < pets.length; i++) {
       list.add(
-        GestureDetector(
-          onTap: () {
-            /* Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PetDetail(pet: pets[i])),
-            ); */
-          },
-          child: buildPet(pets[i], i)
+        PetWidget(
+          pet: pets[i], 
+          index: i
         )
       );
     }
@@ -339,7 +346,7 @@ class _PrincipalState extends State<Principal> {
                 name,
                 style: TextStyle(
                   color: Colors.grey[800],
-                  fontSize: 18,
+                  fontSize: 12,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -354,6 +361,7 @@ class _PrincipalState extends State<Principal> {
                   Icon(
                     Icons.phone,
                     color: Colors.grey[800],
+                    size: 18,
                   ),
 
                   SizedBox(
@@ -364,12 +372,34 @@ class _PrincipalState extends State<Principal> {
                     phone,
                     style: TextStyle(
                       color: Colors.grey[800],
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
 
                 ],
+              ),
+
+              SizedBox(
+                height: 8,
+              ),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.green[100],
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Text(
+                  "OPEN - 24/7",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ),
 
             ],

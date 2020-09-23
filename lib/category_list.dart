@@ -53,7 +53,7 @@ class _CategoryListState extends State<CategoryList> {
           Padding(
             padding: EdgeInsets.only(right: 16, left: 16, top: 16, bottom: 32),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
                 buildFilter("Mating", false),
@@ -72,16 +72,10 @@ class _CategoryListState extends State<CategoryList> {
                 childAspectRatio: 1 / 1.55,
                 crossAxisCount: 2,
                 crossAxisSpacing: 15,
-                mainAxisSpacing: 15,
                 children: getPetList().map((item) {
-                  return GestureDetector(
-                    onTap: () {
-                      /* Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => PetDetail(pet: item)),
-                      ); */
-                    },
-                    child: buildPet(item, null)
+                  return PetWidget(
+                    pet: item,
+                    index: null,
                   );
                 }).toList(),
               ),
@@ -104,6 +98,14 @@ class _CategoryListState extends State<CategoryList> {
           width: 1,
           color: selected ? Colors.transparent : Colors.grey[300],
         ),
+        boxShadow: [
+          BoxShadow(
+            color: selected ? Colors.blue[300].withOpacity(0.5) : Colors.white,
+            spreadRadius: 3,
+            blurRadius: 5,
+            offset: Offset(0, 0),
+          ),
+        ],
         color: selected ? Colors.blue[300] : Colors.white,
       ),
       child: Row(

@@ -23,7 +23,7 @@ List<Pet> getPetList(){
         "assets/images/cats/cat_0_1.jpg",
         "assets/images/cats/cat_0_2.jpg",
       ],
-      false,
+      true,
     ),
     Pet(
       "Scottish Fold",
@@ -54,7 +54,7 @@ List<Pet> getPetList(){
       [
         "assets/images/cats/cat_3_0.jpg",
       ],
-      false,
+      true,
     ),
     Pet(
       "American Shorthair",
@@ -64,7 +64,7 @@ List<Pet> getPetList(){
       [
         "assets/images/cats/cat_4_0.jpg",
       ],
-      false,
+      true,
     ),
     Pet(
       "British Shorthair",
