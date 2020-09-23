@@ -50,6 +50,9 @@ flutter:
     - assets/images/
     - assets/images/vets/
     - assets/images/cats/
+    - assets/images/dogs/
+    - assets/images/hamsters/
+    - assets/images/bunnies/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

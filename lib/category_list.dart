@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pet_finder/data.dart';
 import 'package:pet_finder/pet_widget.dart';
 
-class CategoryList extends StatefulWidget {
+class CategoryList extends StatelessWidget {
 
   final Category category;
 
   CategoryList({@required this.category});
 
-  @override
-  _CategoryListState createState() => _CategoryListState();
-}
-
-class _CategoryListState extends State<CategoryList> {
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -22,7 +17,7 @@ class _CategoryListState extends State<CategoryList> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          (widget.category == Category.HAMSTER ? "Hamster" : widget.category == Category.CAT ? "Cat" : widget.category == Category.BUNNY ? "Bunny" : "Dog") + " Category",
+          (category == Category.HAMSTER ? "Hamster" : category == Category.CAT ? "Cat" : category == Category.BUNNY ? "Bunny" : "Dog") + " Category",
           style: TextStyle(
             color: Colors.grey[800],
           ),
@@ -72,7 +67,7 @@ class _CategoryListState extends State<CategoryList> {
                 childAspectRatio: 1 / 1.55,
                 crossAxisCount: 2,
                 crossAxisSpacing: 15,
-                children: getPetList().map((item) {
+                children: getPetList().where((i) => i.category == category).map((item) {
                   return PetWidget(
                     pet: item,
                     index: null,
@@ -140,5 +135,4 @@ class _CategoryListState extends State<CategoryList> {
       ),
     );
   }
-
 }

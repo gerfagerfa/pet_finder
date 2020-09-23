@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pet_finder/data.dart';
 import 'package:pet_finder/pet_widget.dart';
 import 'package:pet_finder/category_list.dart';
-import 'package:pet_finder/user_avatar.dart';
 
 class Principal extends StatefulWidget {
   @override
@@ -122,15 +121,15 @@ class _PrincipalState extends State<Principal> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildPetCategory(Category.HAMSTER, "56", Colors.orange[200], Icons.mouse),
-                      buildPetCategory(Category.CAT, "210", Colors.blue[200], Icons.mouse),
+                      buildPetCategory(Category.HAMSTER, "56", Colors.orange[200]),
+                      buildPetCategory(Category.CAT, "210", Colors.blue[200]),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildPetCategory(Category.BUNNY, "90", Colors.green[200], Icons.mouse),
-                      buildPetCategory(Category.DOG, "340", Colors.red[200], Icons.mouse),
+                      buildPetCategory(Category.BUNNY, "90", Colors.green[200]),
+                      buildPetCategory(Category.DOG, "340", Colors.red[200]),
                     ],
                   ),
                 ],
@@ -196,6 +195,7 @@ class _PrincipalState extends State<Principal> {
 
             Container(
               height: 130,
+              margin: EdgeInsets.only(bottom: 16),
               child: PageView(
                 physics: BouncingScrollPhysics(),
                 children: [
@@ -213,7 +213,7 @@ class _PrincipalState extends State<Principal> {
     );
   }
 
-  Widget buildPetCategory(Category category, String total, Color color, IconData iconData){
+  Widget buildPetCategory(Category category, String total, Color color){
     return Expanded(
       child: GestureDetector(
         onTap: () {
@@ -296,12 +296,14 @@ class _PrincipalState extends State<Principal> {
   List<Widget> buildNewestPet(){
     List<Widget> list = [];
     for (var i = 0; i < pets.length; i++) {
-      list.add(
-        PetWidget(
-          pet: pets[i], 
-          index: i
-        )
-      );
+      if(pets[i].newest){
+        list.add(
+          PetWidget(
+            pet: pets[i], 
+            index: i
+          )
+        );
+      }
     }
     return list;
   }

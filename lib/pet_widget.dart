@@ -41,11 +41,11 @@ class PetWidget extends StatelessWidget {
                 children: [
 
                   Hero(
-                    tag: pet.images[0],
+                    tag: pet.imageUrl,
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(pet.images[0]),
+                          image: AssetImage(pet.imageUrl),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.only(
