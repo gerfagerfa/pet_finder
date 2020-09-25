@@ -1,3 +1,6 @@
+enum Category { CAT, DOG, BUNNY, HAMSTER }
+enum Condition { Adoption, Disappear, Mating }
+
 class Pet {
 
   String name;
@@ -56,7 +59,3 @@ List<Pet> getPetList(){
     Pet("Chow Chow", "Chicago", "2.5", "Disappear", Category.DOG, "assets/images/dogs/dog_12.jpg", true, true),
   ];
 }
-
-enum Category { CAT, DOG, BUNNY, HAMSTER }
-
-enum Condition { Adoption, Disappear, Mating }

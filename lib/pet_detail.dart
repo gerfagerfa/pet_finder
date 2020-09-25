@@ -183,7 +183,7 @@ class PetDetail extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    "Maine Coon cats are known for their intelligence and playfulness, as well as their size. One of the largest breeds of domestic cats, ther are lovingly referreds.",
+                    "Maine Coon cats are known for their intelligence and playfulness, as well as their size. One of the largest breeds of domestic cats, they are lovingly referreds.",
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 14,
@@ -257,17 +257,13 @@ class PetDetail extends StatelessWidget {
                           ],
                           color: Colors.blue[300],
                         ),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Contact Me",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+                        child: Text(
+                          "Contact Me",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
 
