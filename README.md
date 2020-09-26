@@ -1,5 +1,9 @@
 # Pet Finder App UI in Flutter
-![alt text](https://i.imgur.com/fLJnK2P.png)
+![alt text](https://i.imgur.com/rIqziCQ.png)
+
+🤝 Support Us
+Buy me a coffe: https://www.buymeacoffee.com/MadeWithFlutter
+Patreon: https://www.patreon.com/MadeWithFlutter
 
 # Remember that all this is free so do not be afraid to smash that thumbs up button on YouTube video to help me to reach more people :pray:
 
